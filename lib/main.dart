@@ -13,7 +13,21 @@ class TabBarDemoPage extends StatefulWidget {
   State<TabBarDemoPage> createState() => _TabBarDemoPageState();
 }
 
+class TabData{
+  final String title;
+  final String iconName;
+
+  TabData({required this.title, required this.iconName});
+}
+
 class _TabBarDemoPageState extends State<TabBarDemoPage> with SingleTickerProviderStateMixin{
+  late TabController tabController;
+  int currentIndex = 0;
+  final List<TabData> tabs = [
+    TabData(title: "Home", iconName: "home"),
+    TabData(title: "Search", iconName: "search"),
+    TabData(title: "Profile", iconName: "profile"),
+  ];
 
   @override
   Widget build(BuildContext context) {
