@@ -59,6 +59,27 @@ class _TabBarDemoPageState extends State<TabBarDemoPage> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return CupertinoPageScaffold(
+        child: Stack(
+          children: [
+            Positioned(
+                child: TabBarView(
+                  controller: tabController,
+                children: tabs.map((tab) => ImageTabPage(label: tab.title)).toList(),
+                ))
+    ],));
   }
 }
+
+class ImageTabPage extends StatelessWidget {
+  final String label;
+  const ImageTabPage({super.key, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [],
+    );
+  }
+}
+
