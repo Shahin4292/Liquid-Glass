@@ -30,6 +30,21 @@ class _TabBarDemoPageState extends State<TabBarDemoPage> with SingleTickerProvid
   ];
 
   @override
+  void initState() {
+    tabController = TabController(length: tabs.length, vsync: this);
+    tabController.addListener(updateIndex);
+    super.initState();
+  }
+
+  void updateIndex(){
+    if (tabController.index != currentIndex){
+      setState(() {
+        currentIndex = tabController.index;
+      });
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return const Placeholder();
   }
