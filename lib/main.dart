@@ -44,6 +44,19 @@ class _TabBarDemoPageState extends State<TabBarDemoPage> with SingleTickerProvid
     }
   }
 
+  void onTap(int index){
+    setState(() {
+      currentIndex = index;
+    });
+    tabController.animateTo(index);
+  }
+
+  @override
+  void dispose() {
+    tabController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Placeholder();
